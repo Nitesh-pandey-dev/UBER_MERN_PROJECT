@@ -1,0 +1,11 @@
+const express = require('express');
+const { createRide, confirmRide, checkOtp, endride } = require('../controllers/ride.controller');
+const getFare = require('../middlewares/getFare');
+const check = require('../middlewares/auth');
+const check2 = require('../middlewares/auth2');
+const router = express.Router();
+router.get('/createride',check,getFare,createRide);
+router.get('/confirmride',check2,confirmRide);
+router.get('/checkotp',check2,checkOtp);
+router.get('/endride',check2,endride);
+module.exports = router;
